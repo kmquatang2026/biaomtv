@@ -3,64 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Đang chuyển hướng...</title>
+  <title>Xác nhận tiếp tục</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      background: #ffffff;
+      background-color: #f4f6f8;
       width: 100%;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: #333333;
+      padding: 20px;
     }
 
-    /* Thanh tiến trình cố định phía trên */
-    #bar {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .card {
+      background: #ffffff;
+      padding: 32px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      max-width: 400px;
       width: 100%;
-      height: 3px;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 9999;
     }
 
-    #fill {
-      height: 100%;
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .btn-submit {
+      display: inline-block;
       width: 100%;
-      background: #0066cc;
-      transform-origin: left;
-      transition: transform 1s linear;
+      padding: 14px 0;
+      background-color: #0066cc;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+      background-color: #0052a3;
     }
   </style>
 </head>
 <body>
-  <div id="bar"><div id="fill"></div></div>
-  <p>Đang chuyển hướng, vui lòng chờ trong giây lát...</p>
 
-  <script>
-    // Điền URL đích của bạn tại đây
-    const DEST = "https://biaomtv19.com/go88?utm_source=facebook&utm_medium=cpc&utm_campaign=go8"; 
-    const SECONDS = 1;
+  <div class="card">
+    <h2>Thông báo chuyển hướng</h2>
+    <p>Nhấn vào nút bên dưới để tiếp tục truy cập đến trang liên kết.</p>
+    
+    <!-- Đặt URL đích trực tiếp vào href của thẻ <a> -->
+    <a id="target-link" class="btn-submit" href="https://biaomtv19.com/go88?utm_source=facebook&utm_medium=cpc&utm_campaign=go8">
+      Tiếp tục truy cập
+    </a>
+  </div>
 
-    // Kích hoạt hiệu ứng thanh chạy
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const fillEl = document.getElementById('fill');
-        if (fillEl) {
-          fillEl.style.transform = 'scaleX(0)';
-        }
-      });
-    });
-
-    // Thực hiện chuyển hướng
-    setTimeout(() => {
-      window.location.href = DEST;
-    }, SECONDS * 1000);
-  </script>
 </body>
 </html>
